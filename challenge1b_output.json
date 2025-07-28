@@ -1,0 +1,70 @@
+{
+  "metadata": {
+    "documents": [
+      "report_1.pdf",
+      "report_2.pdf"
+    ],
+    "persona": "Investment Analyst",
+    "job_to_be_done": "Analyze revenue trends, R&D investments, and market positioning strategies",
+    "timestamp": "2025-07-28T22:21:12.358289"
+  },
+  "extracted_sections": [
+    {
+      "document": "report_1.pdf",
+      "page_number": 1,
+      "section_title": "2021. Strategic investments in R&D and cloud infrastructure played a pivotal rol...",
+      "importance_rank": 1
+    },
+    {
+      "document": "report_2.pdf",
+      "page_number": 2,
+      "section_title": "Revenue from enterprise solutions accounted for 70%, driven by strong demand in ...",
+      "importance_rank": 2
+    },
+    {
+      "document": "report_1.pdf",
+      "page_number": 3,
+      "section_title": "R&D investment increased by 15%, focused on AI-powered tools and low-code develo...",
+      "importance_rank": 3
+    },
+    {
+      "document": "report_1.pdf",
+      "page_number": 1,
+      "section_title": "In 2022, Tech Corp A experienced a robust increase in revenue, reaching $2.1B, u...",
+      "importance_rank": 4
+    },
+    {
+      "document": "report_1.pdf",
+      "page_number": 2,
+      "section_title": "The Software segment grew by 25%, while hardware sales remained flat. North Amer...",
+      "importance_rank": 5
+    }
+  ],
+  "sub_section_analysis": [
+    {
+      "document": "report_1.pdf",
+      "page_number": 1,
+      "refined_text": "2021. Strategic investments in R&D and cloud infrastructure played a pivotal role."
+    },
+    {
+      "document": "report_2.pdf",
+      "page_number": 2,
+      "refined_text": "Revenue from enterprise solutions accounted for 70%, driven by strong demand in Asia-Pacific."
+    },
+    {
+      "document": "report_1.pdf",
+      "page_number": 3,
+      "refined_text": "R&D investment increased by 15%, focused on AI-powered tools and low-code development"
+    },
+    {
+      "document": "report_1.pdf",
+      "page_number": 1,
+      "refined_text": "In 2022, Tech Corp A experienced a robust increase in revenue, reaching $2.1B, up from $1.8B in"
+    },
+    {
+      "document": "report_1.pdf",
+      "page_number": 2,
+      "refined_text": "The Software segment grew by 25%, while hardware sales remained flat. North America contributed"
+    }
+  ]
+}
