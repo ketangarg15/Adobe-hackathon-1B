@@ -3,7 +3,93 @@
 #include<vector>
 #include<climits>
 using namespace std;
+vector<int> computeLPS(string pattern){
+    int m=pattern.size();
+    vector<int> lps(m,0);
+    int i=1;
+    int len=0;
+    while(i<m){
+        if(pattern[i]==pattern[len]){
+            len++;
+            lps[i]=len;
+            i++;
+        }
+        else{
+            if(len!=0){
+                len=lps[len-1];
+            }
+            else{
+                lps[i]=0;
+                i++;
+            }
+        }
+    }
+    return lps;
+}
+void Kmp(string text,string pat){
+    int n=text.size();
+    int m=pat.size();
+    vector<int> lps=computeLPS(pat);
+    int i=0;
+    int j=0;
+    while(i<n){
+        if(text[i]==pat[j]){
+            i++;
+            j++;
+        }
+        if(j==m){
+            cout<<"Found"<<(i-j)<<endl;
+            j=lps[j-1];
+        }
+        else if(i<n && text[i]!=pat[j]){
+            if(j!=0){
+                j=lps[j-1];
+            }
+            else{
+                i++;
+            }
+        }
+    }
+}
 
+#define d 256
+#define q 101
+void RabinKarp(string text,string pattern){
+    int n=text.size();
+    int m=pattern.size();
+
+    int p=0;
+    int t=0;
+    int h=1;
+
+    for(int i=0;i<m-1;i++){
+        h=(h*d)%q;
+    }
+    for(int i=0;i<m;i++){
+        p=(d*p+pattern[i])%q;
+        t=(d*t+text[i])%q;
+    }
+    for(int i=0;i<=n-m;i++){
+        if(p==t){
+            bool match=true;
+            for(int j=0;j<m;j++){
+                if(text[i+j]!=pattern[j]){
+                    match=false;
+                    break;
+                }
+            }
+            if(match){
+                cout<<"Pattern found at index "<<i<<endl;
+            }
+        }
+        if(i<n-m){
+            t=(d*(t-text[i]*h)+text[i+m])%q;
+            if(t<0){
+                t+=q;
+            }
+        }
+    }
+}
 int rodcuttingmemo(int i,int len,vector<int>& lengths,vector<int>& prices,vector<vector<int>>& dp){
     if(i==0||len==0){
         return 0;
