@@ -26,7 +26,24 @@ public class Karasuba {
         }
         return count;
     }
+
+    public static int multiply(int n1,int n2){
+        if(n1<10 ||n2<10){
+            return n1*n2;
+        }
+        int dig=Math.max(getNumdigit(n1),getNumdigit(n2));
+        int m=(int)Math.pow(10,dig/2);
+        int a = n1/m;
+        int b=n1%m;
+        int c=n2/m;
+        int d=n2%m;
+        int ac=karatsuba(a,c);
+        int bd=karatsuba(b,d);
+        int abcd=karatsuba(a+b,c+d);
+        int num=ac*m*m+(abcd-ac-bd)*m+bd;
+        return num;
+    }
     public static void main(String[] args) {
-        System.out.println(karatsuba(20,29));
+        System.out.println(multiply(20,29));
     }
 }

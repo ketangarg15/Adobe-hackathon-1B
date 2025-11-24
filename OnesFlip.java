@@ -18,8 +18,28 @@ public class OnesFlip {
         }
         return maxOnes;
     }
+    public static int solve(int arr[],int k){
+        int n=arr.length;
+        int maxOnes=Integer.MIN_VALUE;
+        int windowstart=0;
+        int rep=0;
+        for(int windowend=0;windowend<n;windowend++){
+            if(arr[windowend]==0){
+            rep++;        
+           }
+           while(rep>k){
+            if(arr[windowstart]==0){
+                rep--;
+            }
+            windowstart++;
+           }
+           maxOnes=Math.max(maxOnes,windowend-windowstart+1);
+        }
+        return maxOnes;
+    }
     public static void main(String[] args) {
         int[] arr={1,1,0,1,1,1,0,1,1,1,0,1,1};
         System.out.println(numberof1afterflip(arr,1));
+        System.out.println(solve(arr, 1));
     }
 }

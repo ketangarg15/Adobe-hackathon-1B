@@ -15,6 +15,21 @@ public class Booth {
         }
         return P;
     }
+    public static int booth(int n1,int n2){
+        int r=n2;
+        int a=n1;
+        int p=0;
+        int size=Integer.SIZE;
+        while(size>0){
+            if((r&1)==1){
+                p+=a;
+            }
+            r=r>>1;
+            a=a<<1;
+            size--;
+        }
+        return p;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter multiplicand (M): ");
@@ -24,5 +39,6 @@ public class Booth {
 
         int result = multiply(M, Q);
         System.out.println("Product = " + result);
+        System.out.println(booth(M,Q));
     }
 }

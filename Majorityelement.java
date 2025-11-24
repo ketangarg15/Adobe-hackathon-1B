@@ -18,6 +18,23 @@ public class Majorityelement{
         }
         return m;
     }
+    public static int getmajor(int arr[]){
+        int n=arr.length;
+        int j=0;
+        int m=-1;
+        for(int i=0;i<n;i++){
+            if(j==0){
+                m=arr[i];
+            }
+            else if(m==arr[i]){
+                j++;
+            }
+            else{
+                j--;
+            }
+        }
+        return m;
+    }
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
         int n=sc.nextInt();
@@ -27,5 +44,6 @@ public class Majorityelement{
         }
         int value=getmajorityelement(arr);
         System.out.println(value);
+        System.out.println(getmajor(arr));
     }
 }
